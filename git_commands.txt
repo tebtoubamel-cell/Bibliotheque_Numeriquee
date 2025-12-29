@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "Ajout du projet : code source, README et diagramme UML"
+git remote add origin https://github.com/tebtoubamel-cell/bibliotheque-numerique.git
+git branch -M main
+git push -u origin main

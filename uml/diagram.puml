@@ -1,0 +1,44 @@
+@startuml
+class Book {
+    -titre : str
+    -auteur : str
+    -isbn : str
+    -disponible : bool
+    +__init__(titre, auteur, isbn)
+    +__str__() : str
+}
+
+class User {
+    -nom : str
+    -identifiant : str
+    -emprunts : list
+    +__init__(nom, identifiant)
+    +__str__() : str
+}
+
+class Loan {
+    -livre : Book
+    -utilisateur : User
+    +__init__(livre, utilisateur)
+    +retour()
+}
+
+class Library {
+    -livres : list
+    -utilisateurs : list
+    -emprunts : list
+    +__init__()
+    +ajouter_livre(livre)
+    +supprimer_livre(isbn)
+    +inscrire_utilisateur(utilisateur)
+    +emprunter_livre(isbn, identifiant)
+    +retourner_livre(isbn, identifiant)
+    +afficher_etat()
+}
+
+Library "1" o-- "*" Book
+Library "1" o-- "*" User
+Library "1" o-- "*" Loan
+Loan "1" *-- "1" Book
+Loan "1" *-- "1" User
+@enduml
